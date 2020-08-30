@@ -59,4 +59,15 @@ public class PokerHandTpyeTest {
     //then
     assertEquals("Straight", result.getPokerTypeName());
   }
+
+  @Test
+  void should_return_three_of_a_kind_when_check_type_given_3H_3D_5S_9C_3D() {
+    //given
+    String[] input = {"3H", "3D", "5S" ,"9C" ,"3D"};
+    //when
+    PokerTypeHandler pokerTypeHandler = new PokerTypeHandler();
+    PokerTypeEnum result = pokerTypeHandler.check(input);
+    //then
+    assertEquals("Three of a Kind", result.getPokerTypeName());
+  }
 }
