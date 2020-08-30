@@ -12,7 +12,7 @@ public class SameTypePokerComparator {
       return pairCompare(blackNumber, whiteNumber);
     } else if (POKER_TYPE.equals("Two Pairs")) {
       return twoPairsCompare(blackNumber, whiteNumber);
-    } else if (POKER_TYPE.equals("Three of a Kind") || POKER_TYPE.equals("Full House")) {
+    } else if (POKER_TYPE.equals("Three of a Kind") || POKER_TYPE.equals("Full House") || POKER_TYPE.equals("Four of a kind")) {
       return threeOfAKindCompare(blackNumber, whiteNumber);
     }
     return highCardCompare(blackNumber, whiteNumber);
