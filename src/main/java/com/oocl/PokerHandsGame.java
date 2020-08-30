@@ -19,7 +19,7 @@ public class PokerHandsGame {
 
     SameTypePokerComparator sameTypePokerComparator = new SameTypePokerComparator();
 
-    return sameTypePokerComparator.compare(blackNumber, whiteNumber);
+    return sameTypePokerComparator.compare(blackNumber, whiteNumber, blackPokerType);
 
   }
 }
