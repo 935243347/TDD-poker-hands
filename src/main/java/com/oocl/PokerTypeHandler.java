@@ -7,6 +7,8 @@ public class PokerTypeHandler {
   public PokerTypeEnum check(String[] input) {
     if (isStraightFlush(input)) {
       return PokerTypeEnum.STRAIGHT_FLUSH;
+    } else if(isFourOfAKind(input)){
+      return PokerTypeEnum.FOUR_OF_A_KIND;
     }
     return PokerTypeEnum.HIGH_CARD;
   }
@@ -51,5 +53,27 @@ public class PokerTypeHandler {
     return Arrays.stream(suits).distinct().count() == 1;
   }
 
+  private boolean isFourOfAKind(String[] input) {
+    List<Integer> numbers = new ArrayList();
+    Map<Integer, Integer> countNumber = new HashMap();
+
+    for (String str : input) {
+      String s = str.substring(0, 1);
+      Integer number = NumberStringMapForValue(s);
+      numbers.add(number);
+      countNumber.put(number, countNumber.containsKey(number)? countNumber.get(number) + 1 : 1);
+    }
+    Collections.sort(numbers);
+
+    if (countNumber.size() != 2) {
+      return false;
+    }
+    for (Integer key : countNumber.keySet()) {
+      if(countNumber.get(key) == 4){
+        return true;
+      }
+    }
+    return false;
+  }
 
 }
