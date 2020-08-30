@@ -14,7 +14,7 @@ public class SameTypePokerComparator {
     } else if (pokerType.getPokerTypeName().equals("Three of a Kind")) {
       return threeOfAKindCompare(blackNumber, whiteNumber);
     }
-    return "";
+    return highCardCompare(blackNumber, whiteNumber);
   }
 
   private String threeOfAKindCompare(List<Integer> blackNumber, List<Integer> whiteNumber) {
