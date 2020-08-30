@@ -26,4 +26,15 @@ public class PokerHandTpyeTest {
     //then
     assertEquals("Four of a kind", result.getPokerTypeName());
   }
+
+  @Test
+  void should_return_full_house_when_check_type_given_3H_3D_5S_5C_3D() {
+    //given
+    String[] input = {"3H", "3D", "5S", "5C", "3D"};
+    //when
+    PokerTypeHandler pokerTypeHandler = new PokerTypeHandler();
+    PokerTypeEnum result = pokerTypeHandler.check(input);
+    //then
+    assertEquals("Full House", result.getPokerTypeName());
+  }
 }

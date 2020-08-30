@@ -9,6 +9,8 @@ public class PokerTypeHandler {
       return PokerTypeEnum.STRAIGHT_FLUSH;
     } else if(isFourOfAKind(input)){
       return PokerTypeEnum.FOUR_OF_A_KIND;
+    } else if(isFullHouse(input)){
+      return PokerTypeEnum.FULL_HOUSE;
     }
     return PokerTypeEnum.HIGH_CARD;
   }
@@ -38,6 +40,20 @@ public class PokerTypeHandler {
       }
     }
     return false;
+  }
+
+  private boolean isFullHouse(String[] input) {
+    Map<Integer, Integer> countNumber = PokerInputConverter.convertToMap(input);
+    if (countNumber.size() != 2) {
+      return false;
+    }
+    for (Integer key : countNumber.keySet()) {
+      if(countNumber.get(key) == 3 || countNumber.get(key) == 2){
+        return true;
+      }
+    }
+    return false;
+
   }
 
 }
