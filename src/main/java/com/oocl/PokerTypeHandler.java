@@ -15,6 +15,8 @@ public class PokerTypeHandler {
       return PokerTypeEnum.FULL_HOUSE;
     } else if (isFlush(input)) {
       return PokerTypeEnum.FLUSH;
+    } else if (isStraight(input)){
+      return PokerTypeEnum.STRAIGHT;
     }
     return PokerTypeEnum.HIGH_CARD;
   }
@@ -65,6 +67,16 @@ public class PokerTypeHandler {
       suits[i] = input[i].charAt(1);
     }
     return Arrays.stream(suits).distinct().count() == 1;
+  }
+
+  private boolean isStraight(String[] input) {
+    List<Integer> numbers = PokerInputConverter.convertToNumber(input);
+    for (int i = 1; i < numbers.size(); i++) {
+      if ((Integer.parseInt(String.valueOf(numbers.get(i))) - 1) != Integer.parseInt(String.valueOf(numbers.get(i - 1)))) {
+        return false;
+      }
+    }
+    return true;
   }
 
 }

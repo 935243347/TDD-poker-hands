@@ -48,4 +48,15 @@ public class PokerHandTpyeTest {
     //then
     assertEquals("Flush", result.getPokerTypeName());
   }
+
+  @Test
+  void should_return_Straight_when_check_type_given_3H_4D_5S_6C_7D() {
+    //given
+    String[] input = {"3H", "4D", "5S" ,"6C" ,"7D"};
+    //when
+    PokerTypeHandler pokerTypeHandler = new PokerTypeHandler();
+    PokerTypeEnum result = pokerTypeHandler.check(input);
+    //then
+    assertEquals("Straight", result.getPokerTypeName());
+  }
 }
