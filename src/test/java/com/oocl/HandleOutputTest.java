@@ -89,4 +89,16 @@ public class HandleOutputTest {
     //then
     assertEquals("White wins.",result);
   }
+
+  @Test
+  public void should_return_white_wins_when_play_given_black_3H_3D_5S_5C_3D_and_white_4H_4D_6S_6C_4D() {
+    //given
+    String[] black = {"3H", "3D", "5S", "5C", "3D"};
+    String[] white = {"4H", "4D", "6S", "6C", "4D"};
+    //when
+    PokerHandsGame pokerHandsGame = new PokerHandsGame();
+    String result = pokerHandsGame.play(black, white);
+    //then
+    assertEquals("White wins.",result);
+  }
 }

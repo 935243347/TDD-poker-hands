@@ -5,13 +5,14 @@ import java.util.Map;
 
 public class SameTypePokerComparator {
   public String compare(List<Integer> blackNumber, List<Integer> whiteNumber, PokerTypeEnum pokerType) {
-    if (pokerType.getPokerTypeName().equals("High Card")) {
+    String POKER_TYPE = pokerType.getPokerTypeName();
+    if (POKER_TYPE.equals("High Card")) {
       return highCardCompare(blackNumber, whiteNumber);
-    } else if (pokerType.getPokerTypeName().equals("Pair")) {
+    } else if (POKER_TYPE.equals("Pair")) {
       return pairCompare(blackNumber, whiteNumber);
-    } else if (pokerType.getPokerTypeName().equals("Two Pairs")) {
+    } else if (POKER_TYPE.equals("Two Pairs")) {
       return twoPairsCompare(blackNumber, whiteNumber);
-    } else if (pokerType.getPokerTypeName().equals("Three of a Kind")) {
+    } else if (POKER_TYPE.equals("Three of a Kind") || POKER_TYPE.equals("Full House")) {
       return threeOfAKindCompare(blackNumber, whiteNumber);
     }
     return highCardCompare(blackNumber, whiteNumber);
