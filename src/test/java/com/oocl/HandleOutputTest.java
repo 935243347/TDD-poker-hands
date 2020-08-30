@@ -79,10 +79,10 @@ public class HandleOutputTest {
   }
 
   @Test
-  public void should_return_white_wins_when_play_given_black_3H_4H_5H_7H_6H_and_white_4H_5H_7H_6H_8H() {
+  public void should_return_white_wins_when_play_given_black_3H_4D_5H_7H_6H_and_white_4H_5D_7H_6H_8H() {
     //given
-    String[] black = {"3H", "4H", "5H", "7H", "6H"};
-    String[] white = {"4H", "5H", "7H", "6H", "8H"};
+    String[] black = {"3H", "4D", "5H", "7H", "6H"};
+    String[] white = {"4H", "5D", "7H", "6H", "8H"};
     //when
     PokerHandsGame pokerHandsGame = new PokerHandsGame();
     String result = pokerHandsGame.play(black, white);
