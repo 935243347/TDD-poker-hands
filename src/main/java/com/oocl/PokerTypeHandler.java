@@ -1,7 +1,6 @@
 package com.oocl;
 
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -16,10 +15,12 @@ public class PokerTypeHandler {
       return PokerTypeEnum.FULL_HOUSE;
     } else if (isFlush(input)) {
       return PokerTypeEnum.FLUSH;
-    } else if (isStraight(input)){
+    } else if (isStraight(input)) {
       return PokerTypeEnum.STRAIGHT;
-    } else if (isThreeOfAKind(input)){
+    } else if (isThreeOfAKind(input)) {
       return PokerTypeEnum.THREE_OF_A_KIND;
+    } else if (isTwoPairs(input)) {
+      return PokerTypeEnum.TWO_PAIRS;
     }
     return PokerTypeEnum.HIGH_CARD;
   }
@@ -88,6 +89,20 @@ public class PokerTypeHandler {
       if (countNumber.get(key) == 3) {
         return true;
       }
+    }
+    return false;
+  }
+
+  private boolean isTwoPairs(String[] input) {
+    Map<Integer, Integer> countNumber = PokerInputConverter.convertToCountNumberMap(input);
+    int countPairs = 0;
+    for (Integer key : countNumber.keySet()) {
+      if (countNumber.get(key) == 2) {
+        countPairs++;
+      }
+    }
+    if (countPairs == 2) {
+      return true;
     }
     return false;
   }
