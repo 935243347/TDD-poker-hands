@@ -11,8 +11,17 @@ public class SameTypePokerComparator {
       return pairCompare(blackNumber, whiteNumber);
     } else if (pokerType.getPokerTypeName().equals("Two Pairs")) {
       return twoPairsCompare(blackNumber, whiteNumber);
+    } else if (pokerType.getPokerTypeName().equals("Three of a Kind")) {
+      return threeOfAKindCompare(blackNumber, whiteNumber);
     }
     return "";
+  }
+
+  private String threeOfAKindCompare(List<Integer> blackNumber, List<Integer> whiteNumber) {
+    if (blackNumber.get(2) > whiteNumber.get(2)) {
+      return "Black wins.";
+    }
+    return "White wins.";
   }
 
   private String twoPairsCompare(List<Integer> blackNumber, List<Integer> whiteNumber) {
@@ -65,3 +74,5 @@ public class SameTypePokerComparator {
   }
 
 }
+
+
