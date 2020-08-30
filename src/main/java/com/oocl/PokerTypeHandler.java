@@ -21,6 +21,8 @@ public class PokerTypeHandler {
       return PokerTypeEnum.THREE_OF_A_KIND;
     } else if (isTwoPairs(input)) {
       return PokerTypeEnum.TWO_PAIRS;
+    } else if (isPair(input)){
+      return PokerTypeEnum.PAIR;
     }
     return PokerTypeEnum.HIGH_CARD;
   }
@@ -102,6 +104,20 @@ public class PokerTypeHandler {
       }
     }
     if (countPairs == 2) {
+      return true;
+    }
+    return false;
+  }
+
+  private boolean isPair(String[] input) {
+    Map<Integer, Integer> countNumber = PokerInputConverter.convertToCountNumberMap(input);
+    int countPairs = 0;
+    for (Integer key : countNumber.keySet()) {
+      if (countNumber.get(key) == 2) {
+        countPairs++;
+      }
+    }
+    if (countPairs == 1) {
       return true;
     }
     return false;

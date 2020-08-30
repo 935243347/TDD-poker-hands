@@ -81,4 +81,15 @@ public class PokerHandTpyeTest {
     //then
     assertEquals("Two Pairs", result.getPokerTypeName());
   }
+
+  @Test
+  void should_return_pair_when_check_type_given_3H_3D_5S_9C_KD() {
+    //given
+    String[] input = {"3H", "3D", "5S" ,"9C" ,"KD"};
+    //when
+    PokerTypeHandler pokerTypeHandler = new PokerTypeHandler();
+    PokerTypeEnum result = pokerTypeHandler.check(input);
+    //then
+    assertEquals("Pair", result.getPokerTypeName());
+  }
 }
