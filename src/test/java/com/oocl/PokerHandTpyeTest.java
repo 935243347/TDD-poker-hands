@@ -37,4 +37,15 @@ public class PokerHandTpyeTest {
     //then
     assertEquals("Full House", result.getPokerTypeName());
   }
+
+  @Test
+  void should_return_flush_when_check_type_given_2H_3H_5H_9H_KH() {
+    //given
+    String[] input = {"2H", "3H", "5H", "9H", "KH"};
+    //when
+    PokerTypeHandler pokerTypeHandler = new PokerTypeHandler();
+    PokerTypeEnum result = pokerTypeHandler.check(input);
+    //then
+    assertEquals("Flush", result.getPokerTypeName());
+  }
 }

@@ -32,7 +32,7 @@ public class PokerInputConverter {
     return numbers;
   }
 
-  public static Map<Integer, Integer> convertToMap(String[] input){
+  public static Map<Integer, Integer> convertToCountNumberMap(String[] input){
     Map<Integer, Integer> countNumber = new HashMap();
     for (String str : input) {
       String s = str.substring(0, 1);
