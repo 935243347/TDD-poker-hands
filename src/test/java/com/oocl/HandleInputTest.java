@@ -2,13 +2,11 @@ package com.oocl;
 
 import org.testng.annotations.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static org.testng.AssertJUnit.assertEquals;
 
-public class HandleInput {
+public class HandleInputTest {
 
   @Test
   void should_return_string_array_when_handle_poker_number_given_poker_string() {
