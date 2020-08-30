@@ -42,4 +42,12 @@ public class PokerInputConverter {
     return countNumber;
   }
 
+  public static Map<Integer, Integer> convertToCountNumberMap(List<Integer> input){
+    Map<Integer, Integer> countNumber = new HashMap();
+    for (Integer number : input) {
+      countNumber.put(number, countNumber.containsKey(number)? countNumber.get(number) + 1 : 1);
+    }
+    return countNumber;
+  }
+
 }

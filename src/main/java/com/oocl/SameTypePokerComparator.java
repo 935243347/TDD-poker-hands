@@ -1,15 +1,40 @@
 package com.oocl;
 
 import java.util.List;
+import java.util.Map;
 
 public class SameTypePokerComparator {
   public String compare(List<Integer> blackNumber, List<Integer> whiteNumber, PokerTypeEnum pokerType) {
     if (pokerType.getPokerTypeName().equals("High Card")) {
       return highCardCompare(blackNumber, whiteNumber);
-    } else if(pokerType.getPokerTypeName().equals("Pair")){
+    } else if (pokerType.getPokerTypeName().equals("Pair")) {
       return pairCompare(blackNumber, whiteNumber);
+    } else if (pokerType.getPokerTypeName().equals("Two Pairs")) {
+      return twoPairsCompare(blackNumber, whiteNumber);
     }
     return "";
+  }
+
+  private String twoPairsCompare(List<Integer> blackNumber, List<Integer> whiteNumber) {
+    Map<Integer, Integer> blackNumberMap = PokerInputConverter.convertToCountNumberMap(blackNumber);
+    Map<Integer, Integer> whiteNumberMap = PokerInputConverter.convertToCountNumberMap(whiteNumber);
+    Integer maxBlackNumber = getMaxMapNumber(blackNumberMap);
+    Integer maxWhiteNumber = getMaxMapNumber(whiteNumberMap);
+    if(maxBlackNumber> maxWhiteNumber){
+      return "Black wins.";
+    }
+    return "White wins.";
+  }
+
+  private Integer getMaxMapNumber(Map<Integer, Integer> NumberMap) {
+    Integer maxNumber = 0;
+    for (Integer key : NumberMap.keySet()) {
+      Integer number = NumberMap.get(key);
+      if(number == 2 && key > maxNumber){
+        maxNumber = key;
+      }
+    }
+    return maxNumber;
   }
 
   private String pairCompare(List<Integer> blackNumber, List<Integer> whiteNumber) {
