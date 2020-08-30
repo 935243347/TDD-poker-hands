@@ -2,7 +2,7 @@ package com.oocl;
 
 public enum PokerTypeEnum {
 
-  HIGH_CARD("High card", 1),
+  HIGH_CARD("High Card", 1),
 
   PAIR("Pair", 2),
 
